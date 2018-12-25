@@ -1,0 +1,30 @@
+
+# 公共配置
+mybatis:
+  typeAliasesPackage: com.lzx.entity
+  mapperLocations: classpath:mappers/*.xml
+
+
+---
+
+# 开发配置
+spring:
+  profiles:
+    active: dev
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/testdb
+    username: root
+    password: 123456
+    # 数据源
+    type: com.mchange.v2.c3p0.ComboPooledDataSource
+
+
+# 这里是默认配置
+spring.devtools.restart.enabled: true
+# 设置重启的目录
+spring.devtools.restart.additional-paths: src/main/java
+# classpath目录下的WEB-INF文件夹内容修改不重启
+# spring.devtools.restart.exclude: WEB-INF/**
+
